@@ -23,6 +23,7 @@ class DropDown extends StatelessWidget {
                 itemExtent: 40, // Height of each item
                 onSelectedItemChanged: (int index) {
                   // Handle item selection (consider using a callback or state management)
+                  // ignore: avoid_print
                   print(items[index]); // Example access to selected item
                 },
                 backgroundColor: Colors.transparent,
