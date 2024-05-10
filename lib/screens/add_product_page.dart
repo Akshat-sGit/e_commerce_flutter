@@ -124,10 +124,16 @@ class AddProductPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                Row(
+                const Row(
                   children: [
-                    Flexible(child: DropDown(dropdownItem: "Category")),
-                    Flexible(child: DropDown(dropdownItem: "Size")),
+                    Flexible(
+                        child: DropDown(
+                            dropdownItem: "Category",
+                            items: ['shoes', 'jackets', 'jeans', 'shirts'])),
+                    Flexible(
+                        child: DropDown(
+                            dropdownItem: "Size",
+                            items: ['30', '32', '34', '36'])),
                   ],
                 ),
                 const SizedBox(height: 20),
@@ -137,8 +143,42 @@ class AddProductPage extends StatelessWidget {
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     )),
+                const SizedBox(height: 10),
+                const Row(
+                  children: [
+                    Expanded(
+                      child: DropDown(
+                          dropdownItem: "Select Item",
+                          items: ['item1', 'item2', 'item3', 'item4']),
+                    ),
+                  ],
+                ),
                 const SizedBox(height: 20),
-                DropDown(dropdownItem: "Select Item"),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // Add product to database
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Text(
+                        "Add Product",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

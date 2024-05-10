@@ -55,7 +55,7 @@ class HomePage extends StatelessWidget {
           // ),
           backgroundColor: Colors.white.withOpacity(0.25),
           onPressed: () {
-            Get.to(const AddProductPage());
+            Get.to(() => const AddProductPage());
           },
           child: const Icon(
             Icons.add,
