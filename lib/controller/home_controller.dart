@@ -16,6 +16,10 @@ class HomeController extends GetxController {
 
   addProduct() {
     DocumentReference doc = productCollection.doc();
+    doc.set({
+      'name': 'Product 1',
+      'price': 100,
+    });
     
   }
 }
