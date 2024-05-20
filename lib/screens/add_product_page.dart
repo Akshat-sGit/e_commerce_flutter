@@ -141,8 +141,9 @@ class AddProductPage extends StatelessWidget {
                           selectedItem:
                               ctrl.category, // Pass the selected category
                           onSelected: (value) {
-                            ctrl.category = value; // Update the selected category in the controller
-                            },
+                            ctrl.category =
+                                value; // Update the selected category in the controller
+                          },
                         ),
                       ),
                       Flexible(
@@ -151,7 +152,8 @@ class AddProductPage extends StatelessWidget {
                           items: const ['Nike', 'Adidas', 'Asics', 'Puma'],
                           selectedItem: ctrl.brand, // Pass the selected brand
                           onSelected: (value) {
-                            ctrl.brand = value; // Update the selected brand in the controller
+                            ctrl.brand =
+                                value; // Update the selected brand in the controller
                           },
                         ),
                       ),
@@ -171,7 +173,7 @@ class AddProductPage extends StatelessWidget {
                     children: [
                       Expanded(
                         child: DropDown(
-                          dropdownItem: "Select Item",
+                          dropdownItem: "Offer",
                           items: const ['true', 'false'],
                           selectedItem: 'true',
                           onSelected: (value) {

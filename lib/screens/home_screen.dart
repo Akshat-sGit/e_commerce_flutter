@@ -24,16 +24,16 @@ class HomePage extends StatelessWidget {
             ),
           ),
           body: ListView.builder(
-            itemCount: 10,
+            itemCount: ctrl.products.length,
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
                 title: Text(
-                  "Item $index",
+                  ctrl.products[index].name ?? "",
                   style: GoogleFonts.poppins(
                       color: Colors.white, fontWeight: FontWeight.w700),
                 ),
                 subtitle: Text(
-                  "Description $index",
+                  (ctrl.products[index].price.toString()).toString(),
                   style: GoogleFonts.poppins(
                       color: Colors.white, fontWeight: FontWeight.w400),
                 ),
