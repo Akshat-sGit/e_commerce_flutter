@@ -43,8 +43,7 @@ class HomePage extends StatelessWidget {
                     color: Colors.red,
                   ),
                   onPressed: () {
-                    // ctrl.testMethod();
-                    ctrl.test; 
+                    ctrl.deleteProduct(ctrl.products[index].id ?? '');
                   },
                 ),
               );
