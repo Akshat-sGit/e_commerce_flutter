@@ -26,7 +26,7 @@ class Product {
   String? brand;
 
   @JsonKey(name: 'offer') 
-  double? offer;
+  bool? offer;
 
   Product({
     this.id,

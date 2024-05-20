@@ -45,7 +45,6 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     // ctrl.testMethod();
                     ctrl.test; 
-                    print('delete');
                   },
                 ),
               );

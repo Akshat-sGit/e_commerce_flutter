@@ -1,16 +1,18 @@
-import 'package:e_commerce_flutter/controller/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../widgets/dropdown_btn.dart';
+import '../widgets/dropdown_btn.dart'; // Assuming you have a custom DropDown widget defined here.
+import 'package:e_commerce_flutter/controller/home_controller.dart';
 
 class AddProductPage extends StatelessWidget {
   const AddProductPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomeController>(builder: (ctrl) {
-      return Scaffold(
+    return GetBuilder<HomeController>(
+      init: HomeController(),
+      builder: (ctrl) {
+        return Scaffold(
           backgroundColor: Colors.black,
           appBar: AppBar(
             backgroundColor: Colors.black,
@@ -41,12 +43,13 @@ class AddProductPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   TextField(
+                    controller: ctrl.nameController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderSide: const BorderSide(color: Colors.white),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      label: const Text("Product Name"),
+                      labelText: "Product Name", // Corrected from 'label'
                       hintText: "Enter Your Product Name",
                       hintStyle: GoogleFonts.poppins(
                         color: const Color.fromARGB(142, 255, 255, 255),
@@ -62,13 +65,15 @@ class AddProductPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   TextField(
+                    controller: ctrl.descriptionController,
                     maxLines: 5,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderSide: const BorderSide(color: Colors.white),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      label: const Text("Product Description"),
+                      labelText:
+                          "Product Description", // Corrected from 'label'
                       hintText: "Enter Your Product Description",
                       hintStyle: GoogleFonts.poppins(
                         color: const Color.fromARGB(142, 255, 255, 255),
@@ -84,12 +89,13 @@ class AddProductPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   TextField(
+                    controller: ctrl.imageController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderSide: const BorderSide(color: Colors.white),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      label: const Text("Image URL"),
+                      labelText: "Image URL", // Corrected from 'label'
                       hintText: "Enter Image URL",
                       hintStyle: GoogleFonts.poppins(
                         color: const Color.fromARGB(142, 255, 255, 255),
@@ -105,12 +111,13 @@ class AddProductPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   TextField(
+                    controller: ctrl.priceController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderSide: const BorderSide(color: Colors.white),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      label: const Text("Price"),
+                      labelText: "Price", // Corrected from 'label'
                       hintText: "Enter Product Price",
                       hintStyle: GoogleFonts.poppins(
                         color: const Color.fromARGB(142, 255, 255, 255),
@@ -125,32 +132,52 @@ class AddProductPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 5),
-                  const Row(
+                  Row(
                     children: [
                       Flexible(
-                          child: DropDown(
-                              dropdownItem: "Category",
-                              items: ['shoes', 'jackets', 'jeans', 'shirts'])),
+                        child: DropDown(
+                          dropdownItem: "Category",
+                          items: const ['shoes', 'jackets', 'jeans', 'shirts'],
+                          selectedItem:
+                              ctrl.category, // Pass the selected category
+                          onSelected: (value) {
+                            ctrl.category = value; // Update the selected category in the controller
+                            },
+                        ),
+                      ),
                       Flexible(
-                          child: DropDown(
-                              dropdownItem: "Brand",
-                              items: ['Nike', 'Adidas', 'Asics', 'Puma'])),
+                        child: DropDown(
+                          dropdownItem: "Brand",
+                          items: const ['Nike', 'Adidas', 'Asics', 'Puma'],
+                          selectedItem: ctrl.brand, // Pass the selected brand
+                          onSelected: (value) {
+                            ctrl.brand = value; // Update the selected brand in the controller
+                          },
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 5),
-                  Text("Order Product",
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      )),
+                  Text(
+                    "Order Product",
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   const SizedBox(height: 10),
-                  const Row(
+                  Row(
                     children: [
                       Expanded(
                         child: DropDown(
-                            dropdownItem: "Select Item",
-                            items: ['item1', 'item2', 'item3', 'item4']),
+                          dropdownItem: "Select Item",
+                          items: const ['true', 'false'],
+                          selectedItem: 'true',
+                          onSelected: (value) {
+                            ctrl.offer = value == 'true' ? true : false;
+                          },
+                        ),
                       ),
                     ],
                   ),
@@ -160,6 +187,7 @@ class AddProductPage extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         // Add product to database
+                        ctrl.addProduct();
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blue,
@@ -183,7 +211,9 @@ class AddProductPage extends StatelessWidget {
                 ],
               ),
             ),
-          ));
-    });
+          ),
+        );
+      },
+    );
   }
 }
