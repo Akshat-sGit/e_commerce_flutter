@@ -21,7 +21,6 @@ class HomeController extends GetxController {
   List<Product> products = [];
 
   @override
-  // ignore: unnecessary_overrides
   Future<void> onInit() async {
     productCollection = firestore.collection('products');
     await fetchProducts();    
