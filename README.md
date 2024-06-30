@@ -1,16 +1,3 @@
-# e_commerce_flutter
+# Footwear Admin
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Effortlessly manage your online footwear store with our powerful Admin App, designed to provide a seamless and efficient management experience. Built using Flutter and GetX state management, this app allows administrators to handle product listings, orders, and customer inquiries with ease. Leveraging Firebase for real-time updates and secure data storage, you can ensure your store runs smoothly and stays up-to-date with the latest trends.
