@@ -41,7 +41,7 @@ class AddProductPage extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 5),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: ctrl.nameController,
                     decoration: InputDecoration(
@@ -63,7 +63,7 @@ class AddProductPage extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  const SizedBox(height: 5),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: ctrl.descriptionController,
                     maxLines: 5,
@@ -87,7 +87,7 @@ class AddProductPage extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  const SizedBox(height: 5),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: ctrl.imageController,
                     decoration: InputDecoration(
@@ -109,7 +109,7 @@ class AddProductPage extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  const SizedBox(height: 5),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: ctrl.priceController,
                     decoration: InputDecoration(
@@ -131,13 +131,13 @@ class AddProductPage extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  const SizedBox(height: 5),
+                  const SizedBox(height: 10),
                   Row(
                     children: [
                       Flexible(
                         child: DropDown(
                           dropdownItem: "Category",
-                          items: const ['shoes', 'jackets', 'jeans', 'shirts'],
+                          items: const ['Heels', 'Clogs', 'Sports', 'Boots', 'Sneakers'],
                           selectedItem:
                               ctrl.category, // Pass the selected category
                           onSelected: (value) {

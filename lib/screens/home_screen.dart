@@ -16,6 +16,7 @@ class HomePage extends StatelessWidget {
             backgroundColor: Colors.black,
             title: Text(
               "Footwear Admin",
+              textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
                 color: Colors.white,
                 fontSize: 20,
